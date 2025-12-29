@@ -15,11 +15,11 @@ export default function TextCounterPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="mb-6">
+    <div className="container mx-auto px-4 py-4">
+      <div className="mb-4">
         <Link
           href="/"
-          className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          className="inline-flex items-center rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
         >
           ← 返回首页
         </Link>
@@ -81,8 +81,8 @@ export default function TextCounterPage() {
             id="text-input"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="w-full rounded-md border border-gray-300 p-3 font-mono text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-            rows={15}
+            className="w-full min-h-[180px] resize-y rounded-md border border-gray-300 p-3 font-mono text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+            rows={10}
             placeholder="在此输入文本..."
           />
           <div className="mt-4 flex gap-4">

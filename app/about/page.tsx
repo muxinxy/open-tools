@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-6">
       <div className="mx-auto max-w-3xl">
         <h1 className="mb-8 text-4xl font-bold text-gray-900 dark:text-white">
           关于开源工具箱

@@ -66,11 +66,25 @@ export const toolCategories: ToolCategory[] = [
         path: '/tools/image/compressor',
       },
       {
+        id: 'image-cropper',
+        name: '图片裁剪',
+        description: '证件照尺寸裁剪',
+        icon: '✂️',
+        path: '/tools/image/cropper',
+      },
+      {
         id: 'image-resizer',
         name: '图片调整大小',
         description: '调整图片尺寸',
         icon: '📏',
         path: '/tools/image/resizer',
+      },
+      {
+        id: 'image-watermark',
+        name: '图片水印',
+        description: '添加文字水印',
+        icon: '🖋️',
+        path: '/tools/image/watermark',
       },
     ],
   },
@@ -241,6 +255,13 @@ export const toolCategories: ToolCategory[] = [
     description: '加密解密和哈希工具',
     icon: '🔐',
     tools: [
+      {
+        id: 'aes-encrypt',
+        name: 'AES加密',
+        description: 'AES-GCM 长文本加解密',
+        icon: '🛡️',
+        path: '/tools/encryption/aes',
+      },
       {
         id: 'hash-generator',
         name: '哈希生成',

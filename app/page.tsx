@@ -3,7 +3,7 @@ import { toolCategories } from '@/lib/tools-data';
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-6">
       {/* Hero Section */}
       <div className="mb-12 text-center">
         <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
