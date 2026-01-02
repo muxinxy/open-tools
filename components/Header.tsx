@@ -83,15 +83,15 @@ export default function Header() {
                       <Link
                         href={tool.path}
                         onClick={() => setIsFocused(false)}
-                        className="flex items-start gap-3 px-4 py-3 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700/80"
+                        className="flex items-start gap-3 px-4 py-3 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700/80 cursor-pointer"
                       >
-                        <span className="text-lg">{tool.icon}</span>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2">
+                        <span className="text-lg flex-shrink-0">{tool.icon}</span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap">
                             <span className="text-sm font-semibold text-gray-900 dark:text-white">
                               {tool.name}
                             </span>
-                            <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+                            <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300 flex-shrink-0">
                               {tool.categoryIcon} {tool.categoryName}
                             </span>
                           </div>

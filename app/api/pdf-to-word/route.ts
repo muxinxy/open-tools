@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
     const docBuffer = await buildDocxBuffer(text);
     const filename = `${baseName(file.name) || 'converted'}.docx`;
 
-    return new NextResponse(docBuffer, {
+    return new NextResponse(Buffer.from(docBuffer), {
       status: 200,
       headers: {
         'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',

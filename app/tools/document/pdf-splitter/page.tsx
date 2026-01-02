@@ -101,7 +101,7 @@ export default function PdfSplitterPage() {
         const doc = await PDFDocument.create();
         const indices = Array.from({ length: end - start + 1 }, (_, i) => start - 1 + i);
         const pagesCopied = await doc.copyPages(src, indices);
-        pagesCopied.forEach((p) => doc.addPage(p));
+        pagesCopied.forEach((p: any) => doc.addPage(p));
         const outBytes = await doc.save();
         const blob = new Blob([outBytes], { type: 'application/pdf' });
         const url = URL.createObjectURL(blob);

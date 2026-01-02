@@ -22,10 +22,10 @@ export default function CategoryCard({ category }: CategoryCardProps) {
           <Link
             key={tool.id}
             href={tool.path}
-            className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
           >
-            <span>{tool.icon}</span>
-            <span className="text-gray-700 dark:text-gray-300">{tool.name}</span>
+            <span className="flex-shrink-0">{tool.icon}</span>
+            <span className="text-gray-700 dark:text-gray-300 flex-1">{tool.name}</span>
           </Link>
         ))}
       </div>
