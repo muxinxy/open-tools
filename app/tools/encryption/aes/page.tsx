@@ -180,6 +180,38 @@ export default function AESPage() {
     setCopied(null);
   };
 
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    try {
+      const text = await file.text();
+      setInputText(text);
+      setStatus({ type: "success", message: `已加载文件：${file.name}` });
+    } catch (err) {
+      console.error(err);
+      setStatus({ type: "error", message: "文件读取失败" });
+    }
+  };
+
+  const handleDownload = () => {
+    if (!outputText) {
+      setStatus({ type: "error", message: "没有可下载的内容" });
+      return;
+    }
+
+    const blob = new Blob([outputText], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `aes-result-${Date.now()}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    setStatus({ type: "success", message: "文件已下载" });
+  };
+
   return (
     <div className="container mx-auto px-4 py-4">
       <div className="mb-4">
@@ -207,12 +239,23 @@ export default function AESPage() {
               <label className="text-sm font-medium text-gray-900 dark:text-white">
                 输入内容（明文或密文）
               </label>
-              <button
-                onClick={() => handleCopy(inputText, "input")}
-                className="text-xs text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-              >
-                {copied === "input" ? "已复制" : "复制输入"}
-              </button>
+              <div className="flex gap-2">
+                <label className="cursor-pointer text-xs text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+                  📁 加载文件
+                  <input
+                    type="file"
+                    accept=".txt,.md,.json,.xml,.csv"
+                    onChange={handleFileUpload}
+                    className="hidden"
+                  />
+                </label>
+                <button
+                  onClick={() => handleCopy(inputText, "input")}
+                  className="text-xs text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                  {copied === "input" ? "已复制" : "复制输入"}
+                </button>
+              </div>
             </div>
             <textarea
               value={inputText}
@@ -283,12 +326,20 @@ export default function AESPage() {
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white">结果</h2>
                 <p className="text-xs text-gray-500 dark:text-gray-400">加密密文或解密后的明文会显示在这里</p>
               </div>
-              <button
-                onClick={() => handleCopy(outputText, "output")}
-                className="text-xs text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-              >
-                {copied === "output" ? "已复制" : "复制结果"}
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={handleDownload}
+                  className="text-xs text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                  💾 下载
+                </button>
+                <button
+                  onClick={() => handleCopy(outputText, "output")}
+                  className="text-xs text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                  {copied === "output" ? "已复制" : "复制结果"}
+                </button>
+              </div>
             </div>
 
             <textarea

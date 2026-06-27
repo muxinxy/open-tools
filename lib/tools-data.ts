@@ -166,6 +166,13 @@ export const toolCategories: ToolCategory[] = [
         icon: '🔍',
         path: '/tools/developer/regex-tester',
       },
+      {
+        id: 'url-encoder',
+        name: 'URL编码',
+        description: 'URL编码和解码工具',
+        icon: '🔗',
+        path: '/tools/developer/url-encoder',
+      },
     ],
   },
   {
@@ -303,13 +310,6 @@ export const toolCategories: ToolCategory[] = [
         description: 'Base64编码解码',
         icon: '🔤',
         path: '/tools/encryption/base64',
-      },
-      {
-        id: 'url-encoder',
-        name: 'URL编码',
-        description: 'URL编码解码',
-        icon: '🌐',
-        path: '/tools/encryption/url',
       },
     ],
   },

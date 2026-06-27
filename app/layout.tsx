@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "开源工具箱 - Open Tools",
   description: "一个功能丰富的开源在线工具箱，包含视频、音频、图片、文档、加密等多种工具",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
